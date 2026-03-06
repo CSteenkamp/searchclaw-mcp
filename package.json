@@ -1,0 +1,35 @@
+{
+  "name": "searchclaw-mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol server for the SearchClaw search API",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "searchclaw-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "search",
+    "searchclaw",
+    "model-context-protocol",
+    "ai",
+    "claude"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "@types/node": "^22.13.5"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}
