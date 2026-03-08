@@ -24,25 +24,38 @@ async function apiGet(path: string, params?: Record<string, string>) {
       url.searchParams.set(key, value);
     }
   }
-  const response = await fetch(url.toString(), { headers });
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`SearchClaw API error ${response.status}: ${text}`);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 30000);
+  try {
+    const response = await fetch(url.toString(), { headers, signal: controller.signal });
+    if (!response.ok) {
+      const text = await response.text();
+      throw new Error(`SearchClaw API error ${response.status}: ${text}`);
+    }
+    return response.json();
+  } finally {
+    clearTimeout(timeout);
   }
-  return response.json();
 }
 
 async function apiPost(path: string, body: Record<string, unknown>) {
-  const response = await fetch(`${API_BASE}${path}`, {
-    method: "POST",
-    headers: { ...headers, "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`SearchClaw API error ${response.status}: ${text}`);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 30000);
+  try {
+    const response = await fetch(`${API_BASE}${path}`, {
+      method: "POST",
+      headers: { ...headers, "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+    if (!response.ok) {
+      const text = await response.text();
+      throw new Error(`SearchClaw API error ${response.status}: ${text}`);
+    }
+    return response.json();
+  } finally {
+    clearTimeout(timeout);
   }
-  return response.json();
 }
 
 function jsonResult(data: unknown) {
