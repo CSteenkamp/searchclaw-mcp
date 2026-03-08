@@ -1,7 +1,7 @@
 {
   "name": "searchclaw-mcp",
-  "version": "1.0.0",
-  "description": "Model Context Protocol server for the SearchClaw search API",
+  "version": "2.0.0",
+  "description": "MCP server for SearchClaw — Search, Extract, Crawl in One API. The complete web data pipeline for AI agents.",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -17,11 +17,19 @@
     "searchclaw",
     "model-context-protocol",
     "ai",
-    "claude"
+    "claude",
+    "scrape",
+    "extract",
+    "crawl",
+    "web-scraping",
+    "rag",
+    "ai-agents",
+    "firecrawl-alternative"
   ],
   "license": "MIT",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.12.1"
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.24.0"
   },
   "devDependencies": {
     "typescript": "^5.7.3",
