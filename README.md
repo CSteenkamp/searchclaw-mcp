@@ -4,6 +4,10 @@ The complete web data pipeline for AI agents. [Search, Extract, Crawl in One API
 
 A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server with **15 tools** covering web search, scraping, extraction, crawling, and autonomous data gathering via the [SearchClaw](https://searchclaw.dev) API.
 
+<a href="https://glama.ai/mcp/servers/CSteenkamp/searchclaw-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/CSteenkamp/searchclaw-mcp/badge" alt="Searchclaw MCP server" />
+</a>
+
 ## Installation
 
 ```bash
